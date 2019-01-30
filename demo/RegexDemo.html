@@ -5,13 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-    <p id="p1">Hope is a good thing,maybe best thing,and no good thing ever dies</p>
-    <p id="p2"></p>
-    <script>
-        var str=document.getElementById("p1").innerHTML;
-        var patterns=/h/gi;
-        var matches=str.replace(patterns,'Y');
-        document.getElementById("p2").innerHTML=matches
-    </script>
+<p id="p1">Hope is a good thing,maybe best thing,and no good thing ever dies</p>
+<p id="p2"></p>
+<p id="p3"></p>
+<script>
+    var str = document.getElementById("p1").innerHTML;
+    var patterns = /h/gi;
+    var matches = str.replace(patterns, 'Y');
+    document.getElementById("p2").innerHTML = matches
+    document.getElementById("p3").innerHTML = patterns.test(str)
+</script>
 </body>
 </html>
