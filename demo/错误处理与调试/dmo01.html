@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function CustomError(meg) {
+        this.name="CustomError";
+        this.message=meg;
+
+    }
+    CustomError.prototype=new Error()
+
+    function text() {
+        try {
+            throw new CustomError("Error Tip")
+            throw "自定义错误"
+            someFunction();
+        } catch (e) {
+                console.log(e)
+                alert(e.message)
+                return 0
+        } finally {
+            alert(1)
+            return 1
+        }
+    }
+    text()
+</script>
+</body>
+</html>

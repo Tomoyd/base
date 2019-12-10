@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas id="drawing" width="200" height="200">A drawing of something</canvas>
+    <script>
+        var drawing = document.getElementById("drawing")
+
+        if(drawing.getContext){
+            //alert(11)
+            var context= drawing.getContext("2d")
+            context.beginPath()
+            context.arc(100,100,99,0,2*Math.PI,false)
+            context.moveTo(194,100)
+            context.arc(100,100,94,0,2*Math.PI,false);
+            context.moveTo(100,100)
+            context.lineTo(100,15)
+            context.moveTo(100,100)
+            context.lineTo(35,100)
+            context.stroke()
+            context.strokeStyle="red";
+            context.fillStyle="#0000ff";
+            context.fillRect(20,20,40,40)
+            context.strokeRect(20,20,40,40)
+            // var imgURI=drawing.toDataURL("image/png");
+            // var image=document.createElement("img")
+            // image.src=imgURI;
+            // document.body.appendChild(image)
+        }
+    </script>
+</body>
+</html>

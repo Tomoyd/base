@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"  manifest="file.manifest">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        applicationCache.addEventListener("updateready",function () {
+            applicationCache.swapCache()
+        })
+        window.ononline=function(){
+            alert(navigator.onLine)
+        }
+    </script>
+</body>
+</html>
