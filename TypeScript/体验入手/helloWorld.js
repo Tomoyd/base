@@ -1,4 +1,5 @@
 // tsc hello World
-var printhelloWorld = function () {
-    console.log('hello world');
+var printhelloWorld = function (person) {
+    console.log(person);
 };
+printhelloWorld('小明');

@@ -1,4 +1,5 @@
 // tsc hello World
-const printhelloWorld = () => {
-  console.log('hello world');
+const printhelloWorld = (person: string) => {
+  console.log(person);
 };
+printhelloWorld('小明');
