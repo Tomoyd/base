@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "checkJs": true,
+        "lib": [
+            "ES2015",
+            "DOM",
+            "ES5"
+        ],
+        "target": "ESNext"
+    }
+}
