@@ -193,3 +193,13 @@ Object.defineProperty(myObject, Symbol.iterator, {
 		};
 	},
 });
+
+const enumObj = {
+	cant: 'false',
+};
+
+Object.defineProperty(enumObj, 'cant', {
+	enumerable: false,
+});
+
+console.log('enumObj', Object.getOwnPropertyNames(enumObj));
