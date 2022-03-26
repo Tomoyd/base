@@ -203,3 +203,11 @@ Object.defineProperty(enumObj, 'cant', {
 });
 
 console.log('enumObj', Object.getOwnPropertyNames(enumObj));
+
+
+
+try {
+	throw new RangeError('kkkkk');
+} catch (error) {
+	console.log('error', error.message);
+}
