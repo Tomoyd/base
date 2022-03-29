@@ -5,7 +5,8 @@
         "lib": [
             "ES2015",
             "DOM",
-            "ES5"
+            "ESNext",
+            "ES2020"
         ],
         "target": "ESNext"
     }

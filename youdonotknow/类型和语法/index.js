@@ -231,8 +231,8 @@ console.log('parseInt( to );', parseInt(to));
 /**
  * <
  * > 比较
- * ToPrimitive
- * 字符串首字母比较
+ * 进行ToPrimitive操作
+ * 字符串首字母顺序比较
  */
 
 
