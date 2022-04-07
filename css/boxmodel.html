@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-ch">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>盒模型</title>
+    <style>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      ::after,
+      ::before {
+        box-sizing: inherit;
+      }
+      .wrapper {
+        margin-left: -1.5em;
+        margin-right: -1.5em;
+      }
+      .container {
+        display: table;
+        /* overflow: hidden; */
+        width: 100%;
+        border-spacing: 1.5em 0;
+      }
+      .main {
+        /* float: left; */
+        width: 70%;
+        background-color: blue;
+        display: table-cell;
+      }
+      .aside {
+        /* float: left; */
+        /* margin-left: 1.5em; */
+        /* width: calc(30% - 1.5em); */
+        width: 30%;
+        padding: 20px;
+        background-color: red;
+        display: table-cell;
+      }
+      .flex-container {
+        display: flex;
+      }
+      .flex-main {
+        width: 70%;
+        background-color: aqua;
+      }
+      .flex-aside {
+        width: 30%;
+        margin-left: 1.5em;
+        background-color: pink;
+      }
+
+      .old-container {
+        width: 100%;
+        overflow: hidden;
+      }
+      .old-main {
+        float: left;
+        width: 70%;
+        width: calc(70% - 1em);
+        background-color: blue;
+      }
+      .old-aside {
+        float: left;
+        width: calc(30% - 0.5em);
+        margin-left: 1.5em;
+        margin-bottom: -10000em;
+        padding-bottom: 10000em;
+        background-color: purple;
+      }
+      .border {
+        overflow: hidden;
+        /* padding: 10px; */
+        /* display: flex;
+        flex-direction: column; */
+      }
+      .border div {
+        margin: 10px 0;
+        padding: 10px 0;
+
+        border: 1px solid #000;
+        overflow: hidden;
+        background-color: red;
+      }
+
+      .media-img {
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="media">
+      <img class="media-img" src="./html5.svg" />
+      <div class="media-body">
+        <p>
+          hello this is a description. this is a description this is a
+          description this is a description this is a description this is a
+          description this is a description
+        </p>
+      </div>
+    </div>
+    <div>
+      <div class="wrapper">
+        <div class="container">
+          <div class="main">
+            1233
+            <p>999</p>
+          </div>
+          <div class="aside">2222</div>
+        </div>
+      </div>
+    </div>
+    <div class="flex">
+      <div class="flex-container">
+        <div class="flex-main">
+          1233
+          <p>999</p>
+        </div>
+        <div class="flex-aside">2222</div>
+      </div>
+    </div>
+    <div class="old-container">
+      <div class="old-main">
+        12
+        <p>999</p>
+        <p>999</p>
+        <p>999</p>
+      </div>
+      <div class="old-aside">
+        3543543543543543543543543543543543543
+        54354354354354354354354354354354354354354354354
+        354354354354354354354354354354354354354354354354354354354
+        354354354354354354354
+      </div>
+    </div>
+    <div class="border">
+      <div>11</div>
+    </div>
+
+    <div class="border">
+      <div>1</div>
+      <!-- <div style="height: 0; padding: 0; border: none"></div> -->
+      <div>23</div>
+      <div>23</div>
+    </div>
+  </body>
+</html>
