@@ -126,3 +126,13 @@ type OThis = OmitThisParameter<typeof toHex>;
  */
 
 type tType = ThisType<{} & { name: 1 }>;
+
+interface Box {
+  height: number;
+  width: number;
+}
+
+interface Box {
+  height: number;
+  name: string;
+}
