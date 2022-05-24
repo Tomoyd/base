@@ -1,7 +1,7 @@
-# JavaScript笔记
-关键要搞清JavaScript的本质历史和局限性
+# JavaScript
 
 
+# TypeScript
 
 ### 1 javascript简介
 
