@@ -1,9 +1,7 @@
-# JavaScript
+### 说明
+
+前端核心code
+
+包括JS TS CSS HTML 算法等
 
 
-# TypeScript
-
-### 1 javascript简介
-
-- javascript简史
-- javascript实现
