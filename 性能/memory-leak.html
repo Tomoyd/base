@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Memory leaks</title>
+</head>
+<body>
+<button id="print">Print Numbers</button>
+<button id="clear">Clear</button>
+<button id="createList">createList</button>
+</body>
+</html>
+<script>
+    var longArray = [];
+
+    function print() {
+      for (var i = 0; i < 5; i++) {
+          let paragraph = document.createElement("p");
+          paragraph.innerHTML = i;
+         document.body.appendChild(paragraph);
+      }
+      longArray.push(new Array(100));
+     
+    }
+    function outer(){
+      a_leak=111;
+      let i=[]; // unused array
+      return function inner(){
+       
+      }
+  }
+
+  var detachedElement;
+function createList(){
+    let ul = document.createElement("ul");
+    for(let i=0; i<5; i++){
+        ul.appendChild(document.createElement("li"));
+    }
+    detachedElement = ul;
+}
+document.getElementById("createList").addEventListener("click", createList);
+const appendNumbers = outer(); // get the inner function
+// call the inner function repeatedly
+console.log(a_leak);
+
+    document.getElementById("print").addEventListener("click", print);
+    document.getElementById("clear").addEventListener("click", () => {
+      window.longArray = null;
+      document.body.innerHTML = "Cleared";
+    });
+</script>
