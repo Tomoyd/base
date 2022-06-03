@@ -32,3 +32,21 @@ function selectSort(arr) {
  */
 
 selectSort([1, 2, 2, 3, 1]);
+
+function s2(arr = []) {
+  let min = 0;
+  let temp;
+  let len = arr.length;
+
+  for (let i = 0; i < len - 1; i++) {
+    min = i;
+    for (j = i; j < len; j++) {
+      if (arr[min] > arr[j]) {
+        min = j;
+      }
+    }
+    temp = arr[i];
+    arr[i] = arr[min];
+    arr[min] = temp;
+  }
+}

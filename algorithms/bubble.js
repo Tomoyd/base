@@ -29,7 +29,7 @@ function bubble(arr) {
 
 const arr = [1, 7, 3];
 
-bubble(arr);
+// bubble(arr);
 
 /**
  *
@@ -41,3 +41,28 @@ bubble(arr);
  * 空间复杂度 1
  * 稳定
  */
+
+function average(arr = []) {
+  let len = arr.length;
+  let temp;
+  let isSorted = true;
+  for (let i = len - 1; i > 0; i--) {
+    isSorted = true;
+    for (let j = 0; j < i; j++) {
+      if (arr[j] > arr[j + 1]) {
+        isSorted = false;
+        temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+    if (isSorted) {
+      return arr;
+    }
+  }
+  return arr;
+}
+
+average(arr);
+
+console.log('arr', arr);

@@ -66,3 +66,34 @@ function sortByInPlace(arr, low, higher) {
 
   return arr;
 }
+
+function quickSort2(arr, low = 0, higher = arr.length) {
+  if (low >= higher) {
+    return arr;
+  }
+
+  const pivot = arr[low];
+  let partIndex = low;
+  let temp;
+  for (let i = low + 1; i < higher; i++) {
+    if (arr[i] < pivot) {
+      partIndex += 1;
+      temp = arr[i];
+      if (partIndex < i) {
+        arr[i] = arr[partIndex];
+        arr[partIndex] = temp;
+      }
+    }
+  }
+
+  if (partIndex > low) {
+    arr[partIndex] = arr[low];
+    arr[low] = temp;
+  }
+
+  quickSort2(arr, low, partIndex);
+  quickSort2(arr, partIndex + 1, higher);
+  return arr;
+}
+
+console.log(quickSort2([1, 2, 7, 6, 4, 9, 0]));

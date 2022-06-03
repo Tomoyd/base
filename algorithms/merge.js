@@ -43,4 +43,28 @@ function mergeSort(arr) {
   );
 }
 
-console.log(mergeSort([1, 2, 0, 0, 4, 3, 2, 1, 7]));
+function merge1(left, right) {
+  let arr = [];
+  while (left.length && right.length) {
+    if (left[0] > right[0]) {
+      arr.push(right.shift());
+    } else {
+      arr.push(left.shift());
+    }
+  }
+
+  arr.push(...left, ...right);
+  return arr;
+}
+
+function sort2(arr = []) {
+  let len = arr.length;
+  if (arr.length < 2) {
+    return arr;
+  }
+
+  const partIndex = ~~(len / 2);
+  return merge1(sort2(arr.slice(0, partIndex)), sort2(arr.slice(partIndex)));
+}
+
+console.log(sort2([1, 2, 0, 0, 4, 3, 2, 1, 7]));

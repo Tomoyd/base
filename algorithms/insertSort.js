@@ -27,4 +27,27 @@ function insertSort(arr) {
   console.log('arr', arr);
 }
 
-insertSort([1, 2, 3, 6, 2, 5]);
+// insertSort([1, 2, 3, 6, 2, 5]);
+
+function insert(arr = []) {
+  let len = arr.length;
+  let temp;
+  let current;
+  for (let i = 1; i < len; i++) {
+    current = i;
+    for (let j = i - 1; j >= 0; j--) {
+      if (arr[current] < arr[j]) {
+        temp = arr[current];
+        arr[current] = arr[j];
+        arr[j] = temp;
+        current = j;
+      } else {
+        break;
+      }
+    }
+  }
+}
+
+let arr = [1, 2, 3, 6, 2, 5];
+insert(arr);
+console.log('arr', arr);
