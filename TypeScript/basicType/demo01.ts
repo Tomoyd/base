@@ -83,3 +83,5 @@ o = {};
 // o = undefined;
 
 // 类型断言尖括号语法或者 as
+
+export default '';

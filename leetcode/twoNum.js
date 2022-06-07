@@ -49,8 +49,8 @@ var twoSum3 = function (nums, target) {
   }
 
   for (var k in numsMap) {
-    if (numsMap[target - k] != undefined) {
-      return [numsMap[k], numsMap[target - k]];
+    if (numsMap[target - +k] != undefined) {
+      return [numsMap[k], numsMap[target - +k]];
     }
   }
 };
@@ -76,7 +76,7 @@ var twoSum4 = function (nums, target) {
 let r4 = twoSum4([1, 2, 3, 3], 6);
 console.log('r4', r4);
 
-var twoSum = function (nums, target) {
+var twoSumL = function (nums, target) {
   var num1 = {},
     num2 = {};
   for (var i = 0; i < nums.length; i++) {
@@ -87,3 +87,5 @@ var twoSum = function (nums, target) {
     num2[target - nums[i]] = true;
   }
 };
+
+export {};
