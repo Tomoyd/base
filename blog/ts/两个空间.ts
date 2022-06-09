@@ -23,5 +23,5 @@ interface Movie {
 
 // 尝试将变量空间的赋值给类型
 const p = '1132';
-type Cat = p;
+// type Cat = p;
 //'p' refers to a value, but is being used as a type here
