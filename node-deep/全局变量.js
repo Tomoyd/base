@@ -1,7 +1,5 @@
 /**
- * global 全局对象
- *
- * console process
+ * global 全局对象 console process
  * 由于模块的原因 var x 在node中并不会加到global对象上,属于该模块私有的全局变量
  * 全局函数
  * setTimeout  时间在1毫秒到 24.8 天左右 超过则按1毫秒处理
@@ -14,7 +12,7 @@
  * 伪全局变量 模块内部私有的全局变量
  * __filename
  * __dirname
- *
+ * 模块内部的局部变量
  * module
  * exports
  *
@@ -24,6 +22,7 @@
 
 var a = 1;
 
-console.log("a", global.a);
+console.log('a', global.a);
 
-console.log("Date.now()", global.__dirname);
+console.log('Date.now()', __dirname);
+console.log('dir');
