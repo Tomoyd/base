@@ -13,7 +13,7 @@ const SLUG_TO_PAGE = {
 };
 
 /* Step 3: enter your page title and description for SEO purposes */
-const PAGE_TITLE = 'Fruition';
+const PAGE_TITLE = 'Tomo';
 const PAGE_DESCRIPTION =
   'Free, Open Source Toolkit For Customizing Your Notion Page';
 
