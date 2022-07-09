@@ -48,3 +48,5 @@ EventEmitter.prototype.setMaxListeners = function (num) {
 EventEmitter.prototype.eventListeners = function (event) {
   return this.listeners[event] || [];
 };
+
+const eventEmitter = new EventEmitter();
