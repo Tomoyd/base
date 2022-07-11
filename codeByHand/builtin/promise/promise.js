@@ -102,7 +102,7 @@ const resolveReturnPromise = (promise, ret, resolve, reject) => {
           if (cancel) return;
           cancel = true;
           reject(r);
-        },
+        }
       );
       return;
     }

@@ -14,40 +14,43 @@
 
 function insertSort(arr) {
   let currentValue = 0;
+  let currentIndex;
   for (let i = 1; i < arr.length; i++) {
     currentValue = arr[i];
+    currentIndex = 0;
     for (let j = i - 1; j >= 0; j--) {
-      if (currentValue > arr[j]) {
-        arr[j + 1] = currentValue;
+      if (currentValue >= arr[j]) {
+        currentIndex = j + 1;
         break;
       }
       arr[j + 1] = arr[j];
     }
+    arr[currentIndex] = currentValue;
   }
   console.log('arr', arr);
 }
 
-// insertSort([1, 2, 3, 6, 2, 5]);
+insertSort([1, 2, 3, 6, 2, 5]);
 
 function insert(arr = []) {
   let len = arr.length;
-  let temp;
-  let current;
+  let currentValue;
+  let currentIndex = 0;
   for (let i = 1; i < len; i++) {
-    current = i;
+    currentValue = arr[i];
+    currentIndex = 0;
     for (let j = i - 1; j >= 0; j--) {
-      if (arr[current] < arr[j]) {
-        temp = arr[current];
-        arr[current] = arr[j];
-        arr[j] = temp;
-        current = j;
+      if (currentValue < arr[j]) {
+        arr[j + 1] = arr[j];
       } else {
+        currentIndex = j + 1;
         break;
       }
     }
+    arr[currentIndex] = currentValue;
   }
 }
 
-let arr = [1, 2, 3, 6, 2, 5];
-insert(arr);
-console.log('arr', arr);
+// let arr22 = [1, 2, 3, 6, 2, 7, 5];
+// insert(arr22);
+// console.log('arr22', arr22);
