@@ -12,10 +12,10 @@ Promise.any = function (pList) {
         },
         () => {
           index++;
-          if (index === p.length) {
+          if (index === pList.length) {
             reject(new Error('all rejected'));
           }
-        },
+        }
       );
     });
   });

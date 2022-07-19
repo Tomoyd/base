@@ -21,3 +21,15 @@ function flat6(arr = []) {
   }
   return arr;
 }
+
+const flat = (arr) => {
+  let result = [];
+  arr.forEach((item, index) => {
+    if (Array.isArray(item)) {
+      result = result.concat(flat(item));
+    } else {
+      result.push(item);
+    }
+  });
+  return result;
+};

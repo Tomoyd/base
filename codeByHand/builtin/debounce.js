@@ -6,7 +6,7 @@ function debounce(fn, gap = 50) {
     clearTimeout(timer);
     timer = setTimeout(() => {
       clearTimeout(timer);
-      return fn(...args);
+      fn(...args);
     }, gap);
   };
 }

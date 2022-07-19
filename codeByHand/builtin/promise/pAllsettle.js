@@ -9,7 +9,7 @@ Promise.allSettled = function (pList) {
 
   const f = (resolve) => {
     index++;
-    if (index === pList) {
+    if (index === pList.length) {
       resolve(result);
     }
   };
@@ -29,7 +29,7 @@ Promise.allSettled = function (pList) {
             reason: error,
           };
           f(resolve);
-        },
+        }
       );
     });
   });

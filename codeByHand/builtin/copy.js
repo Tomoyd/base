@@ -1,18 +1,21 @@
+// @ts-nocheck
+
 function shallowCopy(obj) {
   if (typeof obj !== 'object' || obj === null) return obj;
 
   const newObj = obj instanceof Array ? [] : {};
 
   Object.keys(obj).forEach((k) => {
-    newObj[key] = obj[k];
+    newObj[k] = obj[k];
   });
   return newObj;
 }
 
-// let newO = Object.assign([], [1, 2, 3]);
-// console.log('newO', newO);
+/*
 
-// deepCopy
+深度copy需要使用递归，对象和数组 进行遍历
+对正则和Date类型进行处理
+ */
 function deepCopy(obj, mapObjLoop = new WeakMap()) {
   if (typeof obj !== 'object' || obj === null) return obj;
   if (mapObjLoop.get(obj)) {

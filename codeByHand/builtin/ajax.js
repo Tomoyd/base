@@ -7,7 +7,7 @@ const getJson = (url) => {
       if (xhr.readyState !== 4) {
         return;
       }
-      if (xhr.status === 200 || xhr === 304) {
+      if (xhr.status === 200 || xhr.status === 304) {
         return resolve(xhr.responseText);
       } else {
         reject(new Error(xhr.responseText));

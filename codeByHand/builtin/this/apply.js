@@ -5,12 +5,12 @@ Function.prototype.apply = function (context, args) {
   if (!args) {
     result = context.fn();
   } else {
-    const params = [];
+    var paramStr = '';
     for (var i = 0, len = arr.length; i < len; i++) {
-      params.push('args[' + i + ']');
+      paramStr += 'args[' + i + ']';
     }
 
-    result = eval('params.fn(params+"")');
+    result = eval('params.fn(' + paramStr + ')');
   }
   delete context.__fn__;
   return result;

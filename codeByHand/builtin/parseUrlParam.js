@@ -1,23 +1,35 @@
-function parseParam(url) {
-  const params = {};
-  const paramStr = url.split('?')[1];
-  if (!paramStr) {
-    return params;
+// @ts-nocheck
+// 获取到通过? 分隔后的第二个元素
+// 对元素进行& 分隔并将不包含= 的进行过滤
+// 对值进行decodeURIComponent
+// 对值为数字进行parseFloat
+// 如果重复的要进行数组拼接 concat
+
+const parseUrlParams = (url = '') => {
+  if (typeof url !== 'string') {
+    throw new Error('url 只能为字符串');
   }
 
-  const paramsArr = paramStr.split('&').filter((item) => item.includes('='));
-  paramsArr.forEach((param) => {
-    let [key, value] = param.split('=');
+  const result = {};
+
+  const queryStr = url.split('?')[1];
+  if (!queryStr) {
+    return result;
+  }
+
+  const paramsArr = queryStr.split('&').filter((item) => item.includes('='));
+
+  paramsArr.forEach((str) => {
+    let [key, value] = str.split('=');
     value = decodeURIComponent(value);
-    value = /^\d+$/.test(value) ? Number.parseFloat(value) : value;
-    if (key in params) {
-      params[key] = [].concat(params[key], value);
-    } else {
-      params[key] = value;
-    }
+
+    value = /^\d+$/.test(value) ? parseFloat(value) : value;
+    result[key] =
+      result[key] !== undefined ? [].concat(result[key], value) : value;
   });
-  return params;
-}
+
+  return result;
+};
 console.log(
-  parseParam('https://www.baidu.com/s?ie=UTF-8&wd=12308&wd=hello%208&7'),
+  parseUrlParams('https://www.baidu.com/s?ie=UTF-8&wd=1230&wd=hello%208&7&i')
 );
