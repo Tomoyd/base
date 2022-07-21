@@ -30,7 +30,7 @@ function insertSort(arr) {
   console.log('arr', arr);
 }
 
-insertSort([1, 2, 3, 6, 2, 5]);
+// insertSort([1, 2, 3, 6, 2, 5]);
 
 function insert(arr = []) {
   let len = arr.length;
@@ -54,3 +54,20 @@ function insert(arr = []) {
 // let arr22 = [1, 2, 3, 6, 2, 7, 5];
 // insert(arr22);
 // console.log('arr22', arr22);
+
+function insertSortNew(arr = []) {
+  let temp;
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (j = i + 1; j > 0; j--) {
+      if (arr[j] > arr[j - 1]) {
+        break;
+      }
+      temp = arr[j];
+      arr[j] = arr[j - 1];
+      arr[j - 1] = temp;
+    }
+  }
+  return arr;
+}
+
+insertSortNew([1, 3, 5, 4, 8, 8, 0, 9]);

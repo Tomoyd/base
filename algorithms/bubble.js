@@ -16,7 +16,7 @@ function bubble(arr) {
     }
 
     if (isSorted) {
-      return;
+      return arr;
     }
 
     if (i !== maxIndex) {
@@ -25,9 +25,10 @@ function bubble(arr) {
       arr[maxIndex] = tempI;
     }
   }
+  return arr;
 }
 
-const arr = [1, 7, 3];
+// const arr = [1, 7, 3];
 
 // bubble(arr);
 

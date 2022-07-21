@@ -35,11 +35,11 @@ function mergeSort(arr) {
     return arr;
   }
 
-  const divide = parseInt(length / 2);
+  const divide = ~~(length / 2);
 
   return merge(
     mergeSort(arr.slice(0, divide)),
-    mergeSort(arr.slice(divide, length)),
+    mergeSort(arr.slice(divide, length))
   );
 }
 
