@@ -42,3 +42,19 @@ const predum = (str) => {
 需要对不匹配的进行过滤
 递归的结束的判断
  */
+
+const combineSum2 = (candidate = [], target, start = 0) => {
+  candidate.sort((a, b) => a - b);
+
+  const result = [];
+
+  for (let i = start; i < candidate.length; i++) {
+    combineSum2(candidate, target - candidate[i], i + 1)
+      .filter((item) => !item.includes(-1))
+      .forEach((item) => {
+        result.push([candidate[i], ...item]);
+      });
+  }
+
+  return result;
+};
