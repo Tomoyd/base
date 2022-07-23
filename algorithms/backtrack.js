@@ -43,17 +43,30 @@ const predum = (str) => {
 递归的结束的判断
  */
 
-const combineSum2 = (candidate = [], target, start = 0) => {
-  candidate.sort((a, b) => a - b);
+const combineSum2 = (candidate = [], target, start = 0, isSorted) => {
+  if (!isSorted) {
+    candidate.sort((a, b) => a - b);
+  }
+
+  if (target === 0) {
+    return [[]];
+  }
+  if (target < 0) {
+    return [[-1]];
+  }
 
   const result = [];
-
+  const map = new Map();
   for (let i = start; i < candidate.length; i++) {
-    combineSum2(candidate, target - candidate[i], i + 1)
+    if (map[candidate[i]]) {
+      continue;
+    }
+    combineSum2(candidate, target - candidate[i], i + 1, true)
       .filter((item) => !item.includes(-1))
       .forEach((item) => {
         result.push([candidate[i], ...item]);
       });
+    map[candidate[i]] = true;
   }
 
   return result;
