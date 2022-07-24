@@ -61,11 +61,14 @@ const combineSum2 = (candidate = [], target, start = 0, isSorted) => {
     if (map[candidate[i]]) {
       continue;
     }
-    combineSum2(candidate, target - candidate[i], i + 1, true)
-      .filter((item) => !item.includes(-1))
-      .forEach((item) => {
-        result.push([candidate[i], ...item]);
-      });
+    const nextArr = combineSum2(candidate, target - candidate[i], i + 1, true);
+
+    if (nextArr.length === 1 && nextArr[0][0] === -1) {
+      continue;
+    }
+    nextArr.forEach((item) => {
+      result.push([candidate[i], ...item]);
+    });
     map[candidate[i]] = true;
   }
 
