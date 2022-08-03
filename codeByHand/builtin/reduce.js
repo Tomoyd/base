@@ -1,4 +1,7 @@
 // 首先需要处理pre参数，有init和无init参数时处理
+
+import { map } from 'benchmark';
+
 // 处理参数时需要对空数据项进行排除
 Array.prototype.reduce = function (cb, init) {
   if (this == null) {
