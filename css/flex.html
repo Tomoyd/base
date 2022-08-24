@@ -1,21 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flex</title>
-    <style>
-      .container {
-        display: flex;
-        flex-direction: column;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div>1</div>
-      <div>2</div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flex</title>
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .item1 {
+      z-index: 2;
+      background-color: #ff0;
+      width: 90px;
+      height: 80px;
+    }
+
+    .position2 {
+      position: absolute; 
+      left: 12px;
+      top: 0;
+      z-index: 4;
+    }
+
+    .item2 {
+      background: #f00;
+      z-index: 1;
+      height: 60px;
+      width: 90px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="item1">
+      <div class="position1">position1</div>
     </div>
-  </body>
+    <div class="item2">
+      <div class="position2">position2</div>
+    </div>
+  </div>
+</body>
 </html>

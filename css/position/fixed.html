@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed</title>
+    <style>
+        .fixed1{
+            position: fixed;
+            left: 20px;
+            background-color: #ff0;
+            width: 60px;
+            z-index: 2;
+
+        }
+        .absolute1{
+            position: absolute;
+            z-index: 100;
+            left: 0;
+            background-color: #ee0;
+        }
+
+
+        .fixed2{
+            position: fixed;
+            left: 30px;
+            background-color: #f0f;
+            width: 60px;
+            z-index: 3;
+            
+        }
+        .absolute2{
+            position: fixed;
+            background-color: #e0f;
+            z-index: 1;
+            left: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- fixed 会产生上下文  定位位置相对于窗口定位 left right top bottom-->
+    <div class="fixed1">
+        <div class="absolute1"> z-index: 2;</div>
+    </div>
+    <div class="fixed2">
+        <div class="absolute2">z-index: 1;</div>
+    </div>
+</body>
+</html>
