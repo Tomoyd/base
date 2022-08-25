@@ -2,7 +2,8 @@
     "compilerOptions": {
         "checkJs": true,
         "strictNullChecks": true,
-         "target": "ESnext"
+         "target": "ESnext",
+         "allowJs": true
         
     }
 }
