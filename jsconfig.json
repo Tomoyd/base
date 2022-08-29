@@ -3,7 +3,8 @@
         "checkJs": true,
         "strictNullChecks": true,
          "target": "ESnext",
-         "allowJs": true
+         "allowJs": true,
+         "strictFunctionTypes": true,
         
     }
 }
