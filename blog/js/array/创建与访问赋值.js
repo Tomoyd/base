@@ -49,3 +49,4 @@ a1[-99] = 99;
 console.log('a1,a1.length', a1, a1.length, a1.join(''), a1.toString());
 
 export {};
+// console.log('Array(0)', Array(0));

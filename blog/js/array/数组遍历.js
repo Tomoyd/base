@@ -35,4 +35,4 @@ console.log(
 
 // valueOf 返回数组自己
 
-// export {};
+export {};
