@@ -127,6 +127,107 @@ function init() {
     beginPath();
     drawLine(start, end, points, true);
   }
+  /**
+   *
+   * @param {Point} p 原点
+   * @param {number} radius 半径
+   * @param {number} start 开始的角度 180°是 Math.PI
+   * @param {number} end 结束角度
+   * @param {boolean} wise 方向，默认false是顺时针
+   * @param {string} [strokeStyle]
+   * @param {string} [fillStyle]
+   * @returns
+   */
+  function drawArc(
+    p,
+    radius,
+    start,
+    end,
+    wise = false,
+    strokeStyle = '',
+    fillStyle = ''
+  ) {
+    if (!ctx) return;
+    beginPath();
+    ctx.strokeStyle = strokeStyle;
+    ctx.fillStyle = fillStyle;
+    ctx.arc(...p, radius, start, end, wise);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.fill();
+  }
+  /**
+   *画圆弧
+   * @param {Point} p1 控制点
+   * @param {Point} start 控制点
+   * @param {Point} end 结束点
+   * @param {number} radius 半径
+   * @returns
+   */
+  function drawArcTo(p1, start, end, radius) {
+    if (!ctx) return;
+    beginPath();
+    ctx.moveTo(...start);
+    ctx.arcTo(...p1, ...end, radius);
+
+    ctx.stroke();
+  }
+
+  // 非零环绕填充
+  function drawFill() {
+    //  顺时针闭合区域+1
+    // 逆时针闭合区域-1
+    // 如果区域为0 那么不会得到填充，如果是非0区域则会填充
+    // 比如逆时针区域与顺时针区域重合的即为0
+    // 外层矩形
+    if (!ctx) return;
+    beginPath();
+    ctx.fillStyle = '#00f';
+    ctx.moveTo(50, 50);
+    ctx.lineTo(200, 50);
+    ctx.lineTo(200, 100);
+    ctx.lineTo(50, 100);
+    ctx.closePath();
+    // 内层
+    ctx.moveTo(60, 60);
+    ctx.lineTo(60, 90);
+    ctx.lineTo(190, 90);
+    ctx.lineTo(190, 60);
+    ctx.closePath();
+
+    ctx.fill();
+  }
+  /**
+   *
+   * @param {string} text
+   * @param {Point} v2
+   * @param {number} [maxWidth]
+   * @returns
+   */
+  function drawText(text, v2, strokeStyle, maxWidth) {
+    if (!ctx) return;
+    ctx.font = '30px Arial';
+    ctx.strokeStyle = strokeStyle;
+    ctx.textAlign = 'start';
+    ctx.strokeText(text, ...v2, maxWidth);
+    // ctx.fillText
+    const width = ctx.measureText(text).width;
+    console.log('width', width);
+    // todo 一些字体样式相关的
+  }
+  // drawImage(image,x,y) todo
+  /**
+   *
+   * @param {string} src
+   * @param {Point} p
+   */
+  function drawImage(src, p) {
+    const image = new Image();
+    image.src = src;
+    image.onload = () => {
+      ctx?.drawImage(image, ...p);
+    };
+  }
   return {
     drawLine,
     setLineStyle,
@@ -137,6 +238,10 @@ function init() {
     clearRect,
     clear,
     drawPoly,
+    drawArc,
+    drawArcTo,
+    drawFill,
+    drawText,
   };
 }
 
@@ -177,3 +282,12 @@ ctx.drawPoly(
     [150, 150],
   ]
 );
+
+// 画扇形
+ctx.drawArc([60, 60], 40, 0, Math.PI, true, '#f00', '#445');
+// 画圆弧
+
+ctx.drawArcTo([120, 40], [40, 40], [120, 120], 80);
+ctx.clear();
+// 非零填充
+ctx.drawFill();
