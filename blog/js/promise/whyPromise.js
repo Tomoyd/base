@@ -3,6 +3,8 @@
  * 例如
  */
 
+// import { resolve } from 'path';
+
 function getUser(name, cb) {
   const users = [
     {
