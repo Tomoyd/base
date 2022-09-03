@@ -1,0 +1,16 @@
+.float{
+    overflow: hidden;
+}
+
+.float > div{
+    float: left;
+}
+
+.float-a{
+    width:100px;
+    background-color: pink;
+}
+.float-b{
+   background-color: #06f;
+   width: calc(100% - 100px);
+}

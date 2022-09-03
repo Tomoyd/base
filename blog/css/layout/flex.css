@@ -1,0 +1,14 @@
+.flex{
+    display: flex;
+}
+
+.child-a{
+    background-color: #e00;
+    width: 100px;
+    /* flex: none; */
+
+}
+.child-b{
+    background-color: #00e;
+    flex: 1;
+}

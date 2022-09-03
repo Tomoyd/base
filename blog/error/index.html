@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <script>
+    window.onunhandledrejection = (event) => {
+  event.preventDefault();
+  console.log('unhandledrejection', event.reason);
+};
+
+//  先开始没有处理，后面得到了处理
+window.addEventListener('rejectionhandled', (event) => {
+  console.log('rejectionhandled', event.reason);
+  document.getElementById("error")=Date.now()
+});
+ </script>
+    <script type="text/javascript"   src="./index.js"></script>
+    <script src="./nothh.js"></script>
+    <title>错误问题</title>
+</head>
+<body>
+    <button onclick="generateRejectedPromise(true)"> 异步错误</button>
+    <div id="error"></div>
+    <img src="http://localhost:8080/img">
+    <!-- 运行时错误，加载时错误，promise错误 -->
+</body>
+</html>

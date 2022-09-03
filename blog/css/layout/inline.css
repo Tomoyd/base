@@ -1,0 +1,20 @@
+.inline{
+    overflow:hidden;
+    display: block;
+    font-size: 0;
+}
+
+.inline-a{
+    font-size: 16px;
+    background-color: #0ff;
+    display: inline-block;
+    width: 100px;
+
+}
+.inline-b{
+    font-size: 16px;
+    background-color: #ff0;
+    display: inline-block;
+    width: calc(-100px + 100%);
+}
+

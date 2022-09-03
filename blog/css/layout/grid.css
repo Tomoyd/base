@@ -1,0 +1,10 @@
+.grid{
+    display: grid;
+    grid-template-columns: 100px auto;
+}
+.grid-a{
+    background-color: #0ff;
+}
+.grid-b{
+    background-color: #f0f;
+}
