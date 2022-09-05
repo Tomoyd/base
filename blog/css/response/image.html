@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image</title>
+    <style>
+        img{
+            max-width: 100%;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- svg 矢量图 -->
+    <img src="./images/Webpack.svg"  >
+ 
+    <div class="container">
+        <!-- sizes 媒介查询等于小于500 则宽度为200px 否则800px  srcset 哪个接近显示哪一个-->
+        <img src="./images/es6.jpg"  sizes="(max-width:500px) 200px, 800px"
+            srcset="./images/lemon.jpg 500w, ./images/js.jpg 1000w">
+        <!-- 没有资源情况下根据DPR设备像素比选择合适的图片 -->
+        <img src="./images/js.jpg" srcset=" ./images/es6.jpg  1x, ./images/lemon.jpg 2x"> 
+         <div>picture source</div>
+        <picture>
+            <source media="(max-width: 200px)" srcset="./images/es6.jpg">
+            <source media="(max-width: 300px)" srcset="./images/js.jpg">
+            <image src="./images/lemon.jpg">
+        </picture>
+    </div>
+</body>
+
+</html>
