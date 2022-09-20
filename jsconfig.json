@@ -1,13 +1,13 @@
 {
     "compilerOptions": {
-        "checkJs": true,
+        "checkJs": false,
         "strictNullChecks": true,
          "target": "ESnext",
          "allowJs": true,
          "strictFunctionTypes": true,
          "noEmit": true,
          "skipLibCheck": true,
-       
+         
          
     }
 }
