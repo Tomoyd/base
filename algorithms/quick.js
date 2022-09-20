@@ -2,93 +2,40 @@
  * 每次找个中间值
  * 小的都放左边
  * 大的都放右边
+ * 对比时，每找到一个比参考值小的就进行，小的位置加一，最后再进行，将小值中最小的一位与参考值置换
  * 一次递归，
  * 直到元素只有一个
  *
- *  pivot 不稳定
+ *  pivot 不稳定  交换时会导致位置变化，考虑两个相同的元素，有一个比他们小的元素在他们后面，
+ * 对比时前面的会被置换到后面 如0,2,2,1
  * 时间 nlgn n^2 pivot 都是最后一个会导致最坏情况
- * 空间 n*logn
+ * 空间 logn
  */
-
-function quickSort(arr) {
-  const length = arr.length;
-
-  if (length <= 1) {
-    return arr;
-  }
-
-  const pivot = arr[length - 1];
-
-  let left = [];
-  let right = [];
-
-  for (let i = 0, j = length - 2; i < j; i++, j--) {
-    if (arr[i] > pivot) {
-      right.push(arr[i]);
-    } else {
-      left.push(arr[i]);
-    }
-    if (arr[j] < pivot) {
-      left.push(arr[j]);
-    } else {
-      right.push(arr[j]);
-    }
-  }
-
-  return [...quickSort(left), pivot, ...quickSort(right)];
-}
-
-function sortByInPlace(arr, low, higher) {
-  higher = higher === undefined ? arr.length : higher;
-  low = low || 0;
-
-  if (low >= higher) {
-    return;
-  }
-
-  const pivot = arr[higher - 1];
-  let partiIndex = low;
-  let temp;
-
-  for (let i = low; i < higher - 1; i++) {
-    if (arr[i] < pivot) {
-      temp = arr[i];
-      arr[i] = arr[partiIndex];
-      arr[partiIndex] = temp;
-      partiIndex += 1;
-    }
-  }
-  arr[higher - 1] = arr[partiIndex];
-  arr[partiIndex] = pivot;
-
-  sortByInPlace(arr, low, partiIndex);
-  sortByInPlace(arr, partiIndex + 1, higher);
-
-  return arr;
-}
 
 function quickSort2(arr, low = 0, higher = arr.length) {
   if (low >= higher) {
     return arr;
   }
+  let partIndex = low;
 
   const pivot = arr[low];
-  let partIndex = low;
+
   let temp;
+
   for (let i = low + 1; i < higher; i++) {
+    // 每找到一个比pivot小的就需要
+    // 将连续的新位置交换
     if (arr[i] < pivot) {
       partIndex += 1;
-      temp = arr[i];
-      if (partIndex < i) {
-        arr[i] = arr[partIndex];
-        arr[partIndex] = temp;
-      }
+      temp = arr[partIndex];
+      arr[partIndex] = arr[i];
+      arr[i] = temp;
     }
   }
 
-  if (partIndex > low) {
-    arr[partIndex] = arr[low];
-    arr[low] = temp;
+  if (low !== partIndex) {
+    arr[low] = arr[partIndex];
+    arr[partIndex] = pivot;
   }
 
   quickSort2(arr, low, partIndex);
@@ -96,4 +43,4 @@ function quickSort2(arr, low = 0, higher = arr.length) {
   return arr;
 }
 
-console.log(quickSort2([1, 2, 7, 6, 4, 9, 0]));
+console.log(quickSort2([2, 1, 3, 4, 6, 8, 9.0]));
