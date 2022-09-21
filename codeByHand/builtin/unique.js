@@ -5,7 +5,7 @@ function unique5(arr) {
 }
 
 const unique6 = (arr) => [...new Set(arr)];
-
+// 通常情况下是应该不改变原数组
 function uniqueArray(arr = []) {
   let i = 0;
   const map = new Map();

@@ -1,6 +1,18 @@
 /**
  *
  * 返回一个fulfilled的Promise，不管是正确或者错误都返回
+ * 正确的onFull时记录
+ * {
+ *    status:"fulfilled",
+ *    value
+ * }
+ *
+ *
+ * onRejected时
+ *  {
+ *    status:"rejected",
+ *    reason
+ * }
  */
 
 Promise.allSettled = function (pList) {

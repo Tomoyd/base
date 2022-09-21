@@ -24,7 +24,7 @@ function flat6(arr = []) {
 
 const flat = (arr) => {
   let result = [];
-  arr.forEach((item, index) => {
+  arr.forEach((item) => {
     if (Array.isArray(item)) {
       result = result.concat(flat(item));
     } else {

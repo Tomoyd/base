@@ -24,7 +24,6 @@ class MyPromise {
       this.value = value;
 
       setTimeout(() => {
-        console.log(this.onFilled.length);
         this.onFilled.forEach((f) => f(value));
       });
     };

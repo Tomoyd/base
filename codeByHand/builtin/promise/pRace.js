@@ -1,5 +1,6 @@
 /**
  * 由第一个过渡到非Pending,转为fulfilled或者rejected的实例决定，返回一个包装的新的实例
+
  */
 
 Promise.race = function (pList) {
@@ -11,7 +12,7 @@ Promise.race = function (pList) {
         },
         (err) => {
           reject(err);
-        },
+        }
       );
     });
   });

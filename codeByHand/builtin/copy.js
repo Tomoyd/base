@@ -15,6 +15,10 @@ function shallowCopy(obj) {
 
 深度copy需要使用递归，对象和数组 进行遍历
 对正则和Date类型进行处理
+
+ 1. 递归遍历
+ 2. 对特殊类型进行处理，如正则或者Date
+ 3. 对循环引用的进行处理
  */
 function deepCopy(obj, mapObjLoop = new WeakMap()) {
   if (typeof obj !== 'object' || obj === null) return obj;

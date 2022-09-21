@@ -1,4 +1,9 @@
 // @ts-nocheck
+/**
+ * 1. 执行器 cb(resolve,reject)resolve，reject中状态改变时是不可逆的，且PENDING状态改变后，不能再变
+ * 2. then(onFulfilled,onReject) 方法里面，收集onFulfilled onReject  返回一个Promise 需要判断是否为
+ * 3. then 里面 onFulfilled ，onRejected的返回值需要进行递归处理
+ */
 class MyPromise {
   static PENDING = 'PENDING';
   static REJECTED = 'REJECTED';
@@ -52,13 +57,13 @@ class MyPromise {
         });
       }
 
-      if (this.status === MyPromise.REJECTED) {
+      if (this.status === MyPromise.FULFILLED) {
         setTimeout(() => {
           const res = onFulfilled(this.value);
           resolvePromiseValue(promise, res, resolve, reject);
         });
       }
-      if (this.status === MyPromise.FULFILLED) {
+      if (this.status === MyPromise.REJECTED) {
         setTimeout(() => {
           const res = onRejected(this.value);
           resolvePromiseValue(promise, res, resolve, reject);

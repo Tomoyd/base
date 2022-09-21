@@ -40,5 +40,3 @@ function breadthTraverseTree(tree) {
   }
   return result;
 }
-
-console.log(breadthTraverseTree(testTree));

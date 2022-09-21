@@ -1,3 +1,9 @@
+/**
+ * 是原型方法，apply中的 this指向函数
+ *
+ * 1. function this上下文指定 有效的context或者是 window
+ *
+ */
 Function.prototype.apply = function (context, args) {
   context = context || window;
   context.__fn__ = this;
