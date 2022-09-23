@@ -1,4 +1,10 @@
 // @ts-nocheck
+
+/**
+ * 找组合合并，需要用到回溯法
+ * 回溯法的关键是，渐进式，知道子集的情况，再添加相应的元素逐步回溯扩展
+ * 递归方式实现
+ */
 const combineSum = (candidate, target, start = 0) => {
   if (target === 0) {
     return [[]];
@@ -73,4 +79,58 @@ const combineSum2 = (candidate = [], target, start = 0, isSorted) => {
   }
 
   return result;
+};
+
+/*
+
+[2] [7]  [3]
+  取值时只能从该值往后取 [index, candidates.length)
+  不可以后面的再往前取值
+*/
+var combinationSum = function (candidates, target) {
+  const backtrace = (target, start = 0) => {
+    if (target === 0) {
+      return [[]];
+    }
+    if (target < 0) {
+      return [];
+    }
+
+    const result = [];
+
+    for (let i = start; i < candidates.length; i++) {
+      const newTarget = target - candidates[i];
+      if (newTarget < 0) {
+        continue;
+      }
+      backtrace(newTarget, i).forEach((item) => {
+        result.push([candidates[i], ...item]);
+      });
+    }
+    return result;
+  };
+
+  return backtrace(target);
+};
+
+var combinationSum = function (candidates, target) {
+  const res = [];
+  const dfs = (t, selected = [], i = 0) => {
+    if (i >= candidates.length) return;
+    if (t === 0) {
+      res.push(selected);
+      return;
+    }
+    if (t < 0) {
+      return;
+    }
+
+    if (t - candidates[i] >= 0) {
+      dfs(t - candidates[i], [...selected, candidates[i]], i);
+    }
+
+    dfs(t, selected, i + 1);
+  };
+  dfs(target, [], 0);
+  return res;
 };

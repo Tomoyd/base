@@ -26,44 +26,7 @@ const listNode = {
 };
 
 // console.log('111', JSON.stringify(reverseLinkedList(listNode)));
-
-const reverseLinkedListII = (head, m, n) => {
-  let i = 1;
-
-  let mPre;
-  let nNext;
-
-  while (i < m) {
-    mPre = head;
-    head = head.next;
-    i++;
-  }
-
-  while (head.next && i < n) {
-    head.next.pre = head;
-    head = head.next;
-    i++;
-  }
-
-  nNext = head.next;
-  let preNode = head;
-  while (preNode.pre) {
-    preNode.next = preNode.pre;
-    delete preNode.pre;
-    preNode = preNode.next;
-  }
-
-  if (mPre) {
-    mPre.next = head;
-  }
-
-  preNode.next = nNext;
-
-  return mPre || head;
-};
-
-// console.log('first', JSON.stringify(reverseLinkedListII(listNode, 1, 3)));
-
+// 数组双端法也是可以的
 function reorderList(head) {
   const start = head;
   let origin = start;

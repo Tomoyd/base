@@ -41,4 +41,4 @@
  a. 237. Delete Node in a Linked
  b. 92. Reverse Linked List II 
  c. 876. Middle of the Linked List
- d. 143. Reorder List https://leetcode.com/problems/reorder-list
+ d. 143. Reorder List 
