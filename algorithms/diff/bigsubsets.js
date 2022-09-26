@@ -20,5 +20,24 @@ var lengthOfLIS = function (nums) {
     //  到i当前的最大值与之前到i-1的最大值对比 取最大；
     res = Math.max(res, arr[i]);
   }
+
+  let index = arr.lastIndexOf(res);
+  let pre = nums[index];
+  const result = [pre];
+  for (let i = res - 1; i >= 1; i--) {
+    // 每次从上一个找下一个时，必须从上一个index的前面找
+    let j = index - 1;
+    while (j >= 0) {
+      if (arr[j] === i && nums[j] < pre) {
+        index = j;
+        pre = nums[j];
+        break;
+      }
+      j--;
+    }
+    result.unshift(pre);
+  }
+
   return res;
 };
+const r = lengthOfLIS([1, 2, 3, 9, 3, 6, 7, 3]);
