@@ -40,4 +40,5 @@ var lengthOfLIS = function (nums) {
 
   return res;
 };
+
 const r = lengthOfLIS([1, 2, 3, 9, 3, 6, 7, 3]);
